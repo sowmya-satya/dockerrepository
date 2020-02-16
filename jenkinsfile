@@ -3,13 +3,13 @@ node {
   notify('Job Started') 
   
   environment {
-    registry = "charan253/capstoneproject"
+    registry = "sowmya09/capstonepro"
     registryCredential = 'charandockerhub'
   }
 
      
   stage('Git-Checkout') {
-   git 'https://github.com/SaiCharanUppari/dockerrepo.git'
+   git 'https://github.com/sowmya-satya/dockerrepository.git'
   }
     
  //def project_path="capstoneproject/capstoneproject/"
@@ -35,7 +35,7 @@ node {
   
   /*
   stage('Pushing DockerImage to DockerHub') {
-   sh label: '', script: 'docker push charan253/capstoneproject:$BUILD_NUMBER'
+   sh label: '', script: 'docker push sowmya09/capstonepro:$BUILD_NUMBER'
   }
   */
   
@@ -59,7 +59,7 @@ node {
 
 def notify(status){
     emailext (
-	to: "saicharan713@gmail.com",
+	to: "sowmyarayapureddy@gmail.com",
 	subject: "${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
 	 body: """<p>${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
 	<p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a></p>""",
