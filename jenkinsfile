@@ -43,7 +43,7 @@ node {
   	input "Start provisioning the production server?"
   }
   stage('Downstream Build -- Docker Deployment'){
-	 build 'pipe-Terraform'
+	 build 'terraform-pipeline'
 	}
    
 //}	-----------dir end---------  
