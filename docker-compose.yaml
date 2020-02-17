@@ -4,5 +4,7 @@ version: '2'
 services:
   capstone:
     build: . 
+    image: sowmya09/capstonepro:$BUILD_NUMBER
+    container_name: capstonepro
     ports:
       - '30080:8080'
