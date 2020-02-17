@@ -1,11 +1,6 @@
 node {
  try  {
   notify('Job Started') 
-  
-  environment {
-    registry = "sowmya09/capstonepro"
-    registryCredential = 'charandockerhub'
-  }
 
      
   stage('Git-Checkout') {
@@ -33,12 +28,11 @@ node {
    sh label: '', script: 'docker-compose up -d --build'
   }
   
-  /*
   stage('Pushing DockerImage to DockerHub') {
-   sh label: '', script: 'docker push sowmya09/capstonepro:$BUILD_NUMBER'
+	  docker.withRegistry('', 'sowmya-dockerhub' ) {
+		    sh label: '', script: 'docker push sowmya09/capstonepro:$BUILD_NUMBER'
+		  }
   }
-  */
-  
   stage('Production - Provisioning Approval') {
   	input "Start provisioning the production server?"
   }
