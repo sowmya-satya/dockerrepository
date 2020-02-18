@@ -37,7 +37,7 @@ node {
   	input "Start provisioning the production server?"
   }
   stage('Downstream Build -- Docker Deployment'){
-	 build 'terra-pipe'
+	 build 'production-pipeline'
 	}
    
 //}	-----------dir end---------  
